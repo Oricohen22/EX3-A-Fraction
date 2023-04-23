@@ -12,8 +12,7 @@ private:
     void reduce();
 
 public:
-    // constructors
-    // Fraction();
+    //constructor
     Fraction(float);
     // Fraction(const Fraction& other); // copy constructor
     Fraction(int, int);

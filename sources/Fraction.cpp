@@ -8,41 +8,28 @@
 #include "Fraction.hpp"
 using namespace std;
 
-// /// default constructor
-// Fraction::Fraction(){};
-
 Fraction::Fraction(int a, int b)
 {
     if (b == 0)
     {
-        throw std::runtime_error("division by 0");
+        throw std::runtime_error("can't divide by 0");
     }
     (this)->Numerator = a;
     (this)->Denominator = b;
     reduce();
 }
-// Fraction::Fraction(const Fraction &other)
-//     : Numerator{other.Numerator}, Denominator{other.Denominator}
-// {
-//     // Copy constructor implementation
-// }
 
-Fraction::Fraction(float f)
+Fraction::Fraction(float number)
 {
-    int i = 0;
-    for (; i < 3 && f != round(f); i++)
-    {
-        f *= 10;
-    }
-    (this)->Numerator = round(f);
-    (this)->Denominator = pow(10, i);
+    this->Numerator = number * 1000;
+    this->Denominator = 1000;
+    this->reduce();
 }
 
 int Fraction::getNumerator()
 {
     return this->Numerator;
 }
-
 
 int Fraction::getDenominator()
 {
@@ -65,7 +52,7 @@ void Fraction::setDenominator(int denominator)
 // operator '+' defination
 Fraction operator+(float, const Fraction &other)
 {
-    return Fraction(1,1);
+    return Fraction(1, 1);
 }
 Fraction Fraction::operator+(const Fraction &other)
 {
@@ -80,7 +67,7 @@ Fraction Fraction::operator-(const Fraction &)
 
 Fraction operator-(const float, const Fraction &)
 {
-    return Fraction(1,1);
+    return Fraction(1, 1);
 }
 // operator '*' defination
 Fraction Fraction::operator*(const Fraction &)
@@ -90,7 +77,7 @@ Fraction Fraction::operator*(const Fraction &)
 
 Fraction operator*(const float, const Fraction &)
 {
-    return Fraction(1,1);
+    return Fraction(1, 1);
 }
 // operator '/' defination
 Fraction Fraction::operator/(const Fraction &)
@@ -100,7 +87,7 @@ Fraction Fraction::operator/(const Fraction &)
 
 Fraction operator/(const float, const Fraction &)
 {
-    return Fraction(1,1);
+    return Fraction(1, 1);
 }
 
 bool Fraction::operator==(const Fraction &)
@@ -152,11 +139,11 @@ bool operator<=(const float, const Fraction &)
 
 Fraction Fraction::operator++(const int)
 {
-    return Fraction(1,1);
+    return Fraction(1, 1);
 }
 Fraction Fraction::operator--(const int)
 {
-    return Fraction(1,1);
+    return Fraction(1, 1);
 }
 
 Fraction &Fraction::operator++()
